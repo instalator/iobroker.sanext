@@ -1,0 +1,296 @@
+{
+  "common": {
+    "name": "sanext",
+    "version": "0.0.5",
+    "news": {
+      "0.0.5": {
+        "en": "change test",
+        "de": "change test",
+        "ru": "change test",
+        "pt": "change test",
+        "nl": "change test",
+        "fr": "change test",
+        "it": "change test",
+        "es": "change test",
+        "pl": "change test",
+        "zh-cn": "change test"
+      }
+    },
+    "title": "Sanext heat meter",
+    "titleLang": {
+      "en": "Sanext heat meter",
+      "de": "Sanext heat meter",
+      "ru": "Sanext heat meter",
+      "pt": "Sanext heat meter",
+      "nl": "Sanext heat meter",
+      "fr": "Sanext heat meter",
+      "it": "Sanext heat meter",
+      "es": "Sanext heat meter",
+      "pl": "Sanext heat meter",
+      "zh-cn": "Sanext heat meter"
+    },
+    "desc": {
+      "en": "Receiving data from heat meters Sanext",
+      "de": "Receiving data from heat meters Sanext",
+      "ru": "Receiving data from heat meters Sanext",
+      "pt": "Receiving data from heat meters Sanext",
+      "nl": "Receiving data from heat meters Sanext",
+      "fr": "Receiving data from heat meters Sanext",
+      "it": "Receiving data from heat meters Sanext",
+      "es": "Receiving data from heat meters Sanext",
+      "pl": "Receiving data from heat meters Sanext",
+      "zh-cn": "Receiving data from heat meters Sanext"
+    },
+    "authors": [
+      "instalator <vvvalt@mail.ru>"
+    ],
+    "keywords": [
+      "Sanext",
+      "heat meter"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "sanext.png",
+    "enabled": false,
+    "messagebox": false,
+    "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.sanext/master/admin/sanext.png",
+    "readme": "https://github.com/instalator/ioBroker.sanext/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "materialize": true,
+    "stopBeforeUpdate": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2"
+      }
+    ]
+  },
+  "native": {
+    "ip": "127.0.0.1",
+    "port": 21,
+    "pollingtime": 60000,
+    "sn": ""
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Energy",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Energy",
+        "type": "number",
+        "unit": "Gcal",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "tempIn",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Feed temperature",
+        "type": "number",
+        "unit": "°C",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "tempOut",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Return temperature",
+        "type": "number",
+        "unit": "°C",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "tempDiff",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Temperature difference",
+        "type": "number",
+        "unit": "°C",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "power",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Power",
+        "type": "number",
+        "unit": "Gcal/h",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "volume",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Volume",
+        "type": "number",
+        "unit": "m3",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "rate",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Consumption",
+        "type": "number",
+        "unit": "m3/h",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "imp1",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Pulse input 1",
+        "type": "number",
+        "unit": "m3",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "imp2",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Pulse input 2",
+        "type": "number",
+        "unit": "m3",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "imp3",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Pulse input 3",
+        "type": "number",
+        "unit": "m3",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "imp4",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Pulse input 4",
+        "type": "number",
+        "unit": "m3",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "rateEn",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Consumption (energy)",
+        "type": "number",
+        "unit": "m3/h",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "timeWork",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Normal working time",
+        "type": "number",
+        "unit": "h",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "sysTime",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "System time",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
