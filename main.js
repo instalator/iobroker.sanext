@@ -131,11 +131,9 @@ function send(cmd, cb){
     timeout = setTimeout(() => {
         timeout = null;
         adapter.log.error('No response');
-
         if (sanext){
             sanext._events.data = undefined;
         }
-
         pollAllowed = true;
         cb && cb('');
     }, 5000);
@@ -194,9 +192,9 @@ const addrToArray = (addrSt) => {
 };
 
 function connectTCP(){
-    adapter.log.debug('Connect to ' + adapter.config.ip + ':' + adapter.config.port);
+    adapter.log.info('Connect to ' + adapter.config.ip + ':' + adapter.config.port);
+    sanext && sanext.destroy();
     sanext = new net.Socket();
-
     sanext.connect({host: adapter.config.ip, port: adapter.config.port}, () => {
         adapter.log.info('Connected to server ' + adapter.config.ip + ':' + adapter.config.port);
         adapter.setState('info.connection', true, true);
