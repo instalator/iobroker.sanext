@@ -219,9 +219,11 @@ function send(cmd, cb) {
     timeout = setTimeout(() => {
         timeout = null;
         adapter.log.error('No response');
+		adapter.log.error('sanext - ' + JSON.stringify(sanext));
         if (sanext) {
             sanext._events.data = undefined;
         }
+		reconnect();
         pollAllowed = true;
         cb && cb('');
     }, 5000);
