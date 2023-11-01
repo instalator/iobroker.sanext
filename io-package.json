@@ -160,7 +160,7 @@
         "role": "state",
         "name": "Power",
         "type": "number",
-        "unit": "Gcal/h",
+        "unit": "kW",
         "read": true,
         "write": false,
         "def": false
