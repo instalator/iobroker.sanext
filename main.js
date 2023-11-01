@@ -35,7 +35,7 @@ const func = {
         const address = zeroConcat(response[7]) + zeroConcat(response[6]) + zeroConcat(response[5]) + zeroConcat(response[4]);
         const code = zeroConcat(response[8]); //DN15-00; DN20-01; DN25-02; DN32-03; DN40-04;
         const CurrentCoolingCapacity = parseInt(zeroConcat(response[19]) + zeroConcat(response[18]) + zeroConcat(response[17]) + zeroConcat(response[16])) * 0.01;
-        const CurrentCalories = parseInt(zeroConcat(response[24]) + zeroConcat(response[23]) + zeroConcat(response[22]) + zeroConcat(response[21])) * 0.01;
+        const CurrentCalories = parseInt(zeroConcat(response[24]) + zeroConcat(response[23]) + zeroConcat(response[22]) + zeroConcat(response[21])) * 10 * 0.0000008598;
         const Power = parseInt(zeroConcat(response[29]) + zeroConcat(response[28]) + zeroConcat(response[27]) + zeroConcat(response[26])) * 0.01;
         const InstantaneousFlowRate = parseInt(zeroConcat(response[34]) + zeroConcat(response[33]) + zeroConcat(response[32]) + zeroConcat(response[31])) * 0.01;
         const Volume = parseInt(zeroConcat(response[39]) + zeroConcat(response[38]) + zeroConcat(response[37]) + zeroConcat(response[36])) * 0.01;
@@ -56,7 +56,8 @@ const func = {
         adapter.log.debug('WorkingTimeHour - ' + WorkingTimeHour + ' h'); //0x76,0x68,0x01 (016876h)
         adapter.log.debug('CurrentTime - ' + CurrentTime); //0x32,0x34,0x08,0x16,0x05,0x19,0x20 (2019.5.16-8:34:32)
 
-        setStates('Energy', CurrentCalories);
+        //setStates('Energy', CurrentCalories);
+        setStates('Energy', +parseFloat(CurrentCalories).toFixed(6));
         setStates('tempIn', WaterSupplyTemperature);
         setStates('tempOut', BackwaterTemperature);
         setStates('tempDiff', WaterSupplyTemperature - BackwaterTemperature);
